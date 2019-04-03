@@ -2,6 +2,11 @@
 
 namespace TicTacToe;
 
+/**
+ * User input, which matches given regex.
+ *
+ * @package TicTacToe
+ */
 class InputMatching implements Input
 {
     private $regex;
@@ -10,12 +15,19 @@ class InputMatching implements Input
 
     private $value;
 
+    /**
+     * @param string $regex
+     * @param Input $input
+     */
     public function __construct($regex, Input $input)
     {
         $this->regex = $regex;
         $this->input = $input;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function eof()
     {
         $valid = false;
@@ -27,6 +39,9 @@ class InputMatching implements Input
         return !$valid;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function read()
     {
         return $this->value;

@@ -2,17 +2,28 @@
 
 namespace TicTacToe;
 
+/**
+ * User input read from stdin.
+ *
+ * @package TicTacToe
+ */
 class StdinInput implements Input
 {
     private $prompt;
 
     private $line;
 
+    /**
+     * @param string $prompt
+     */
     public function __construct($prompt)
     {
         $this->prompt = $prompt;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function eof()
     {
         $done = feof(STDIN);
@@ -24,6 +35,9 @@ class StdinInput implements Input
         return $done;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function read()
     {
         return $this->line;

@@ -2,10 +2,18 @@
 
 namespace TicTacToe;
 
+/**
+ * Tic-tac-toe game.
+ *
+ * @package TicTacToe
+ */
 class Game
 {
     private $board;
 
+    /**
+     * @param Board $board initial board
+     */
     public function __construct(Board $board)
     {
         $this->board = new BoardAfterTurns(
@@ -27,6 +35,9 @@ class Game
         );
     }
 
+    /**
+     * Play the game.
+     */
     public function play()
     {
         $this->board->toArray();

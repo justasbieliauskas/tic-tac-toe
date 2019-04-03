@@ -2,6 +2,11 @@
 
 namespace TicTacToe;
 
+/**
+ * An in-bounds, non-taken move.
+ *
+ * @package TicTacToe
+ */
 class ValidMove implements Move
 {
     private $move;
@@ -10,12 +15,19 @@ class ValidMove implements Move
 
     private $tuple;
 
+    /**
+     * @param Move $move
+     * @param array|null $board
+     */
     public function __construct(Move $move, array $board = null)
     {
         $this->move = $move;
         $this->board = $board;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function exists()
     {
         $valid = false;
@@ -30,6 +42,9 @@ class ValidMove implements Move
         return $valid;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function toTuple()
     {
         return $this->tuple;

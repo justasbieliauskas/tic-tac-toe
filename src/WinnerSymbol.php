@@ -2,18 +2,32 @@
 
 namespace TicTacToe;
 
+/**
+ * Represents a symbol that won the game.
+ *
+ * @package TicTacToe
+ */
 class WinnerSymbol
 {
     private $board;
 
     private $default;
 
+    /**
+     * @param array $board
+     * @param string $default a symbol if no one won that game
+     */
     public function __construct(array $board, $default)
     {
         $this->board = $board;
         $this->default = $default;
     }
 
+    /**
+     * Converts itself to string.
+     *
+     * @return string
+     */
     public function __toString()
     {
         $cells = $this->board;

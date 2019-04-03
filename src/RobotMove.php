@@ -2,6 +2,11 @@
 
 namespace TicTacToe;
 
+/**
+ * A move made by a computer.
+ *
+ * @package TicTacToe
+ */
 class RobotMove implements Move
 {
     private $move;
@@ -13,16 +18,25 @@ class RobotMove implements Move
         );
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function exists()
     {
         return $this->move->exists();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function toTuple()
     {
         return $this->move->toTuple();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function next(array $board)
     {
         return $this->move->next($board);

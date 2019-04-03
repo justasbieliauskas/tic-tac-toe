@@ -2,6 +2,11 @@
 
 namespace TicTacToe;
 
+/**
+ * A turn which checks for a winner before being activated.
+ *
+ * @package TicTacToe
+ */
 class TurnWithWinnerCheck implements Turn
 {
     private $turn;
@@ -12,6 +17,12 @@ class TurnWithWinnerCheck implements Turn
 
     private $board;
 
+    /**
+     * @param Turn $turn
+     * @param string $xMessage
+     * @param string $oMessage
+     * @param array|null $board
+     */
     public function __construct(Turn $turn, $xMessage, $oMessage, array $board = null)
     {
         $this->turn = $turn;
@@ -20,6 +31,9 @@ class TurnWithWinnerCheck implements Turn
         $this->board = $board;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function exists()
     {
         $symbol = new WinnerSymbol($this->board, '');
@@ -34,11 +48,17 @@ class TurnWithWinnerCheck implements Turn
             $this->turn->exists();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function newBoardArray()
     {
         return $this->turn->newBoardArray();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function next(array $board)
     {
         return new self(

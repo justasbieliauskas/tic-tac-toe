@@ -2,6 +2,10 @@
 
 namespace TicTacToe;
 
+/**
+ * A symbol-aware turn that uses a move.
+ * @package TicTacToe
+ */
 class MoveTurn implements Turn
 {
     private $move;
@@ -10,6 +14,11 @@ class MoveTurn implements Turn
 
     private $board;
 
+    /**
+     * @param Move $move
+     * @param string $symbol
+     * @param array|null $board
+     */
     public function __construct(Move $move, $symbol, array $board = null)
     {
         $this->move = $move;
@@ -17,11 +26,17 @@ class MoveTurn implements Turn
         $this->board = $board;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function exists()
     {
         return $this->move->exists();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function newBoardArray()
     {
         $newArray = $this->board;
@@ -30,6 +45,9 @@ class MoveTurn implements Turn
         return $newArray;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function next(array $board)
     {
         return new self(
