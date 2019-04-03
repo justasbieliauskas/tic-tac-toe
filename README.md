@@ -1,4 +1,7 @@
 # Tic tac toe
 
 #### How to play:
-`php play.php`
+```bash
+composer dump-autoload
+php play.php
+```
