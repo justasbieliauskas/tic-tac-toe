@@ -1,0 +1,15 @@
+{
+    "name": "justas/ttt",
+    "authors": [
+        {
+            "name": "Justas Bieliauskas",
+            "email": "justyvas0@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+    	"psr-4": {
+    		"TicTacToe\\": "src/"
+    	}
+    }
+}
